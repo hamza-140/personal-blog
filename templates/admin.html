@@ -1,26 +1,39 @@
-{% extends "layout.html" %}
-
-{% block content %}
-    <div style="display:flex;justify-content:space-between;align-items:center">
-        <h2>Personal Blogs</h2>
-        <a style="text-decoration:none;color:black;" href="/new">+ Add</a>
-
+{% extends "layout.html" %} {% block content %}
+<div style="display: flex; justify-content: space-between; align-items: center">
+  <h2>Personal Blogs</h2>
+  <a style="text-decoration: none; color: black" href="/new">+ Add</a>
+</div>
+<ul style="list-style-type: none; padding-left: 0">
+  {% for article in articles %}
+  <li style="display: flex; justify-content: space-between">
+    <a
+      style="text-decoration: none; color: black"
+      href="/article/{{ loop.index }}"
+      >{{ article.title }}</a
+    >
+    <div>
+      <a
+        style="text-decoration: none; color: gray; margin-right: 10px"
+        href="/article/edit/{{ loop.index }}"
+        >Edit</a
+      >
+      <form
+        action="/article/delete/{{ loop.index }}"
+        method="post"
+        style="display: inline"
+      >
+        <button
+          type="submit"
+          style="background: none; border: none; color: gray; cursor: pointer"
+        >
+          Delete
+        </button>
+      </form>
     </div>
-    <ul style="list-style-type:none;padding-left:0">
-        {% for article in articles %}
-            <li style="display:flex;justify-content:space-between">
-                <a style="text-decoration:none;color:black;" href="/article/{{ loop.index }}">{{ article.title }}</a>
-                <div>
-
-                                                        <a style="text-decoration:none;color:gray;margin-right:10px" href="/article/edit/{{ loop.index }}">Edit</a>
-<form action="/article/delete/{{ loop.index }}" method="post" style="display:inline;">
-                        <button type="submit" style="background:none;border:none;color:gray;cursor:pointer;">Delete</button>
-                    </form>
-                </div>
-            </li>
-        {% endfor %}
-    </ul>
-<a style="text-decoration:none;color:black;" href="/logout">
-            <button style="cursor:pointer" type="button">Logout</button>
-        </a>
+  </li>
+  {% endfor %}
+</ul>
+<a style="text-decoration: none; color: black" href="/logout">
+  <button style="cursor: pointer" type="button">Logout</button>
+</a>
 {% endblock %}

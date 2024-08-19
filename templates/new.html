@@ -1,11 +1,13 @@
-{% extends "layout.html" %}
-
-{% block content %}
+{% extends "layout.html" %} {% block content %}
 <h2>New Article</h2>
-    <form action="/new" method="POST" style="display:flex;flex-direction:column;gap:10px">
-    <input name="title" placeholder="Article Title">
-        <input type="date" name="date" placeholder="Publishing Date">
-        <textarea placeholder="content" name="content"></textarea>
-                <button style="cursor:pointer" type="submit">Publish</button>
+<form
+  action="/new"
+  method="POST"
+  style="display: flex; flex-direction: column; gap: 10px"
+>
+  <input name="title" placeholder="Article Title" />
+  <input type="date" name="date" placeholder="Publishing Date" />
+  <textarea placeholder="content" name="content"></textarea>
+  <button style="cursor: pointer" type="submit">Publish</button>
 </form>
 {% endblock %}

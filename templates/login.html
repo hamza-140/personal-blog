@@ -1,31 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
     <script>
-        function validateForm() {
-            const email = document.querySelector('input[type="email"]').value;
-            const password = document.querySelector('input[type="password"]').value;
-            return email === "admin@mail.com" && password === "123";
-        }
+      function validateForm() {
+        const email = document.querySelector('input[type="email"]').value;
+        const password = document.querySelector('input[type="password"]').value;
+        return email === "admin@mail.com" && password === "123";
+      }
 
-        function handleSubmit(event) {
-            if (!validateForm()) {
-                event.preventDefault();
-                alert("Wrong credentials!");
-            }
+      function handleSubmit(event) {
+        if (!validateForm()) {
+          event.preventDefault();
+          alert("Wrong credentials!");
         }
+      }
     </script>
-</head>
-<body style="display:flex;justify-content:center;align-items:center;height:100vh;background-color:#fffcdc;overflow:hidden;">
-    <form action="/login" method="post" onsubmit="handleSubmit(event)" style="display:flex;flex-direction:column;gap:10px">
-        <h2 style="text-decoration:underline">Personal Blog</h2>
-        <input type="email" name="email" placeholder="Email" required>
-        <input type="password" name="password" placeholder="Password" required>
-        <button style="cursor:pointer" type="submit">Login</button>
-        <button style="cursor:pointer" type="button" onclick="window.location.href='/home'">Return</button>
+  </head>
+  <body
+    style="
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #fffcdc;
+      overflow: hidden;
+    "
+  >
+    <form
+      action="/login"
+      method="post"
+      onsubmit="handleSubmit(event)"
+      style="display: flex; flex-direction: column; gap: 10px"
+    >
+      <h2 style="text-decoration: underline">Personal Blog</h2>
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="password" name="password" placeholder="Password" required />
+      <button style="cursor: pointer" type="submit">Login</button>
+      <button
+        style="cursor: pointer"
+        type="button"
+        onclick="window.location.href='/home'"
+      >
+        Return
+      </button>
     </form>
-</body>
+  </body>
 </html>
