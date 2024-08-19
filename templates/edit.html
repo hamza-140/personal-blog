@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h2>Update Article</h2>
+<form action="/article/edit/{{ article_id }}" method="POST" style="display:flex;flex-direction:column;gap:10px">
+    <input name="title" value="{{ article.title }}" placeholder="Article Title" required>
+    <input type="date" value="{{ article.date }}" name="date" placeholder="Publishing Date" required>
+    <textarea placeholder="Content" name="content" required>{{ article.content }}</textarea>
+    <button style="cursor:pointer" type="submit">Update</button>
+</form>
+{% endblock %}
